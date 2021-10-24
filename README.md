@@ -1,5 +1,9 @@
 Grid drawing website
-
+ToDo:
+make buttons function
+implement slider
+Title and Layout
+test on mobile
 Assignment
 Follow the instructions atop Odin’s Recipes project to set up a git repository for this project.
 Create a webpage with a 16x16 grid of square divs.

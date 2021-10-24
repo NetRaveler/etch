@@ -18,6 +18,7 @@ pick.onclick = getScheme('color');
 chaos.onlick = getScheme('red');
 
 function clearGrid() {
+
     container.innerHTML = '';
     console.log('hello');
     spawnGrid(windowSize, mySlide.value);
