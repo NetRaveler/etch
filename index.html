@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Etch</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <script src="script/main.js" defer></script>
+</head>
+
+<body>
+    <!-- buttons to choose between style mods of grid -->
+    <div class="colorChoice">
+        <button id="blackWhite" type="button">Black and White</button>
+        <button id="pick" type="button" value="pick">Custom Color</button>
+        <button id="random" type="button" value="random">Chaos Mode</button>
+        <button id="clear" type="button" value="clear">Clear</button>
+    </div>
+
+    <!-- field or slider to determine density of grid -->
+
+    <div id="container">
+    </div>
+    <div class='sliderDiv'>
+        <input type='range' min="10" max="100" value="10" class="slider" id="mySlide">
+        <p id='valueDisplay'>Grid Size: 10 x 10</p>
+    </div>
+</body>
+
+</html>
