@@ -1,37 +1,52 @@
+let windowWidth = window.innerWidth;
+let windowSize = windowWidth * .4;
 let container = document.querySelector('#container');
 let setWidth = document.getElementsByClassName('gridSquare');
-let colorScheme = 'black';
-let theColor;
 let mySlide = document.getElementById('mySlide');
 let valueDisplay = document.getElementById('valueDisplay');
 let clear = document.getElementById('clear');
-let bw = document.getElementById('blackWhite');
 let pick = document.getElementById('pick');
-let chaos = document.getElementById('random');
+let bw = document.getElementById('blackWhite');
+let random = document.getElementById('random');
 let userSize = 10;
-let windowWidth = window.innerWidth;
-let windowSize = windowWidth * .7;
+let mode = 'default';
 
-clear.onclick = clearGrid;
-bw.onclick = getScheme('black');
-pick.onclick = getScheme('color');
-chaos.onlick = getScheme('red');
-
-function clearGrid() {
-    container.innerHTML = '';
-    console.log('hello');
-    spawnGrid(windowSize, mySlide.value);
+function changeColor(e) {
+    if (mode === 'default') {
+        e.target.style.backgroundColor = 'black';
+    } else if (mode === 'pick') {
+        e.target.style.backgroundColor = (document.getElementById('pick').value);
+    } else if (mode === 'random') {
+        let r1 = Math.floor(Math.random() * 256);
+        let g1 = Math.floor(Math.random() * 256);
+        let b1 = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = 'rgb(' + r1 + ',' + g1 + ',' + b1 + ')';
+    }
 }
+clear.addEventListener('click', clearGrid);
+pick.addEventListener('change', () => mode = 'pick');
+bw.addEventListener('click', () => mode = 'default');
+random.addEventListener('click', () => mode = 'random');
+
+
+
+
+/* Display grid value on document load */
 valueDisplay.innerHTML = 'Grid Size: ' + mySlide.value + 'x' + mySlide.value;
 
+
+function clearGrid() {
+
+    container.innerHTML = '';
+    spawnGrid(windowSize, mySlide.value);
+}
+
+/* dynamicly show grid size input */
 mySlide.oninput = function() {
     valueDisplay.innerHTML = 'Grid Size: ' + this.value + 'x' + this.value;
 }
 
-function getScheme(theColor) {
-    colorScheme = theColor;
-    return (colorScheme);
-}
+
 
 function findSquareSize(windowSize, userSize) {
     let squareSize = windowSize / userSize;
@@ -64,19 +79,4 @@ function spawnGrid(windowSize, userSize) {
 
 }
 
-function changeColor(e) {
-
-
-    if (colorScheme === 'black') {
-        e.target.style.backgroundColor === 'black';
-    } else if (colorScheme === 'color') {
-        e.target.style.backgroundColor = 'pink';
-    } else {
-        e.target.style.backgroundColor = 'black';
-    }
-    console.log(colorScheme);
-}
-
-
-
-spawnGrid(600, 100);
+spawnGrid(windowSize, 10);
