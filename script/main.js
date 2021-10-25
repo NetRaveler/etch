@@ -11,6 +11,9 @@ let random = document.getElementById('random');
 let userSize = 10;
 let mode = 'default';
 
+
+mySlide.addEventListener('change', clearGrid);
+
 function changeColor(e) {
     if (mode === 'default') {
         e.target.style.backgroundColor = 'black';
