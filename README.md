@@ -1,4 +1,4 @@
-netraveler.github.io/etch
+[Click Here to View](https://Netraveler.github.io/etch)
 Grid drawing website
 ToDo:
 make buttons function
